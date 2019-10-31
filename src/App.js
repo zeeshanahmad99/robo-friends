@@ -4,17 +4,14 @@ import { connect } from "react-redux";
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
 
-import { setRobots } from "./redux/robots/robots.actions";
+import { setRobots, requestRobots } from "./redux/robots/robots.actions";
 
 import "./App.css";
 
 class App extends React.Component {
   
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(data => data.json())
-      .then(users => this.props.setRobots(users))
-      .catch(error => console.log(error));
+    this.props.requestRobots();
   }
 
   render() {
@@ -30,7 +27,8 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setRobots: robots => dispatch(setRobots(robots))
+  setRobots: robots => dispatch(setRobots(robots)),
+  requestRobots: () => dispatch(requestRobots())
 });
 
 export default connect(

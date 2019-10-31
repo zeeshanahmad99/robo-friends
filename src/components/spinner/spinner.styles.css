@@ -1,0 +1,25 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 4px solid gray;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  border-top-color: white;
+  animation: rotate 2s linear infinite;
+}
+
+.spinner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
