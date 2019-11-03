@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
 import { setRobots, requestRobots } from "./redux/robots/robots.actions";
 
@@ -16,12 +17,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Robo Friends</h1>
-        <SearchBox />
-        <hr />
-        <CardList />
-      </div>
+      <ErrorBoundary>
+        <div className="App">
+          <h1>Robo Friends</h1>
+          <SearchBox />
+          <hr />
+          <CardList />
+        </div>
+      </ErrorBoundary>
     );
   }
 }
